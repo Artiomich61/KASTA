@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+#regblock{ 
+    position: relative;
+    width: 400px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.inputType{
+    margin-bottom: 20px;
+    padding: 16px 0px 16px 20px;
+    width: calc(100% - 20px);
+    line-height: 24px;
+    border-style: solid;
+    border-radius: 8px;
+    border: 0px;
+    background-color: #ECECEC;
+    color: #363942;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.buttonReg{
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 100%;
+    border-style: solid;
+    border-radius: 8px;
+    border: 0px;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 24px;
+    
+}
+
+.buttonRegBox {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.regBut{
+    background-color: #4B7BE5;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.logBut{
+    margin-top: 10px;
+    background-color: rgba(75, 123, 229, 0.7);
+    color: white;
+    font-size: 16px;
+}
+
+.inputType::placeholder{
+    color: #363942;
+}
+
+.inputType:focus{
+    color: white; 
+    outline: 2px solid #4B7BE5;
+    background-color: rgba(75, 123, 229, 0.7); 
+}
+
+.regBut:hover{
+    background-color: #4470cf;
+}
+
+.logBut:hover{
+    background-color: rgba(75, 123, 229, 0.8);
+}
+
+.regBut:active{
+    background-color: #4B7BE5;
+}
+
+.logBut:active{
+    background-color: rgba(75, 123, 229, 0.7);
+}
+
+.tgAuthBox {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Montserrat Alternates";
+}
+
+.firstHeader {
+    font-weight: bold;
+    font-size: 24px;
+    font-family: "Montserrat Alternates"
+}

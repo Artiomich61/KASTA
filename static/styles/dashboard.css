@@ -1,0 +1,519 @@
+body {     
+    background-color: #fafafa;
+    display: flex;    
+    height: 100vh;
+    font-family: "Montserrat Alternates";    
+    font-weight: 500;
+}
+
+.firstHeader {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.secondHeader {
+    font-weight: 600;
+}
+
+.thirdHeader {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+main {
+    height: 100vh;    
+    width: 100%;
+    padding: 32px; 
+}
+
+#leftSection {
+    height: 100vh;    
+    width: 15vw;
+    padding: 32px;    
+    background-color: #ffffff;
+}
+
+#rightSection {
+    width: 50%;
+    height: 100vh;
+    padding: 32px;
+    padding-left: 0;
+}
+
+#titleBox {    
+    width: 100%;
+    height: 40px;    
+    display: flex;
+}
+
+#appLogo {
+    max-width: 100%;    
+    max-height: 100%;
+}
+
+#appTitle { 
+    margin-left: 8px;   
+    font-family: "Montserrat";
+    font-weight: bold;    
+    font-size: 32px;
+}
+
+#buttonsBox {    
+    display: block;
+    margin-top: 60px;}
+
+.leftBarItem {
+    width: 100%;    
+    height: 44px;
+    display: flex;    
+    align-items: center;
+    margin-bottom: 24px;
+    border-radius: 10px;
+    padding: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.leftBarItem:hover {
+    cursor: pointer;
+    background-color: #f5f5f5;
+}
+
+.leftBarItemLabel {
+    font-family: "Montserrat Alternates";    
+    font-weight: 500;
+    margin-left: 12px;}
+
+#userInfoBox {
+    display: flex;
+    justify-content: space-between;    
+    align-items: center;
+}
+
+#userGreatingLabel {    
+    font-weight: bold;
+    font-size: 24px;}
+
+#userGreatingText {
+    font-size: 16px;    
+    font-weight: 400;
+    margin-top: 8px;}
+
+#userActivity {
+    display: flex;    
+    align-items: center;
+}
+
+#userNotificationItem {
+    max-height: 52px;    
+    max-width: 52px;
+    margin-right: 24px;}
+
+#userAvatar {
+    max-height: 52px;    
+    max-width: 52px;
+    border-radius: 50%;}
+
+.activityBox {
+    margin-top: 44px;    
+    display: flex;
+    justify-content: space-between;}
+
+    .activityGraphLabels {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+.currentTaskBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #141522;    
+    border-radius: 10px;
+    padding: 20px;    
+    color: #ffffff;
+    margin-right: 32px;}
+
+#currentTaskInfo {
+    margin-top: 16px;    
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+#currentTaskLow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#currentTaskLowLabels {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;   
+}
+
+#currentTaskFinish {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+#currentTaskFinishLabel {
+    font-size: 14px;
+    color: #8E92BC
+}
+
+.progress-ring { 
+    width: 100px;     
+    height: 100px; 
+    position: relative;     
+    margin: 0 20px 10px 0px; 
+} 
+.progress-ring circle {     
+    stroke-width: 5; 
+    stroke: #333;     
+    fill: transparent;
+} 
+.progress-ring circle.progress {     
+    stroke: #616aff;
+    stroke-dasharray: 283; 
+    stroke-dashoffset: 100;
+    transition: stroke-dashoffset 0.5s ease; }
+
+#activityGraphBox {
+    border-radius: 10px;    
+    padding: 20px;
+    background: #f5f5f7;   
+    width: 100%;  
+}
+
+#homeTaskBox {
+    margin-top: 40px;
+
+}
+
+.homeTaskTitle {
+    margin-bottom: 20px;
+}
+
+.homeTaskCard {
+    width: 50%;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.homeTaskCardTitle {
+    font-weight: bold;
+}
+
+.homeTaskCardJob {
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: #54577A;
+}
+
+.homeTaskCardProgressLabels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.homeTaskCardProgressPrecents {
+    color: #546FFF;
+}
+
+.homeTaskCardProgressBar {
+    background-color: #546FFF;
+    accent-color: #546FFF;
+    width: 100%;
+}
+
+.homeTaskCardFooter {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.homeTaskCardTimeIcon {
+    max-width: 24px;
+    max-height: 24px;
+}
+
+.homeTaskCardTimeLeft {
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+
+#datePicker {
+    background: #ffffff;
+    min-height: 10vh;
+    max-height: 20vh;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.calendar {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  
+  .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 2px;
+    padding: 5px;
+    text-align: center;
+  }
+  
+  .weekdays div {
+    border-radius: 10px;
+    background-color: #eee;
+    padding: 5px;
+    font-weight: bold;
+  }
+  
+  .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 2px;
+    padding: 5px;
+  }
+  
+  .days div {
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+.days div.current {
+      background-color: lightblue;
+  }
+
+.taskToday {
+    min-height: 75vh;
+    max-height: 80vh;
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px;
+}
+
+.taskTodayImage {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.taskTodayTitle {
+    font-weight: bold;
+}
+
+.taskTodayJob {
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: #54577A;
+}
+
+.taskTodayProgressLabels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.taskTodayProgressPrecents {
+    color: #546FFF;
+}
+
+progress[value] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #BAC8FF;
+    border-radius: 5px;
+}
+
+progress[value]::-webkit-progress-value {
+    background-color: #546FFF;
+    border-radius: 5px;
+}
+
+progress[value]::-moz-progress-bar {
+    background-color: #546FFF;
+}
+
+.taskTodayFooter {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.taskTodayTimeIcon {
+    max-width: 24px;
+    max-height: 24px;
+}
+
+.taskTodayTimeLeft {
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+.dashDivider {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    width: 100%;
+    border-top: 3px solid #f5f5f7;
+}
+
+.taskDetailsLabels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.taskDetailsList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.taskDetailsItem {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.taskDetailsItemNum {
+    background: #f5f5f7;
+    margin-right: 12px;
+    padding: 8px;
+    font-size: 14px;
+    width: 35px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.taskDetailsOpen {
+    margin-top: 30px;
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 10px;
+    background: #546FFF;
+}
+
+@media (max-width: 1600px) {
+
+    #leftSection {
+        display:flex;
+        width: 100vw;
+        height: 10vh;
+        flex-direction: row;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+    }
+    
+    #titleBox {
+        width: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    #buttonsBox {
+        width: 50%;
+        height: auto;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        margin: 0;
+        margin-left: 100px;
+    }
+
+    .leftBarItem {
+        margin: 0;
+    }
+
+    main {
+        width: 100%;
+        margin-top: 10vh;
+    }
+
+    #rightSection {
+        width: 100%;
+        margin-top: 10vh;
+    }
+
+    body {
+        justify-content: space-between;
+        overflow: hidden;
+    }
+
+}
+
+@media (max-width: 1400px) {
+    body {
+        display: block;
+        overflow: scroll;
+    }
+
+    main {
+        height: auto;
+    }
+    
+    #leftSection {
+        height: 10vh;
+    }
+
+    #rightSection {
+        height: auto;
+        margin-top: 0;
+        padding: 32px;
+    }
+
+    .taskToday {
+        max-height: 100%;
+    }
+
+    #myChart {
+        max-width: 100%;
+        height: 25px;
+    }
+
+}

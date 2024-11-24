@@ -1,0 +1,393 @@
+body {     
+    background-color: #fafafa;   
+    height: 100vh;
+    font-family: "Montserrat Alternates";    
+    font-weight: 500;
+}
+
+.flexContainer {
+    display: flex;
+}
+
+.flexContainerMain {
+    width: 100%;
+}
+
+.firstHeader {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.secondHeader {
+    font-weight: 600;
+}
+
+.thirdHeader {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+main {   
+    display: flex;
+    width: 100%;
+    padding: 32px; 
+}
+
+#leftSection {
+    height: 100vh;    
+    width: 15vw;
+    padding: 32px;    
+    background-color: #ffffff;
+}
+
+.rightSection {
+    width: auto;
+    height: auto;
+    padding: 32px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+#titleBox {    
+    width: 100%;
+    height: 40px;    
+    display: flex;
+}
+
+#appLogo {
+    max-width: 100%;    
+    max-height: 100%;
+}
+
+#appTitle {    
+    margin-left: 8px;
+    font-family: "Montserrat";
+    font-weight: bold;    
+    font-size: 32px;
+}
+
+#buttonsBox {    
+    display: block;
+    margin-top: 60px;}
+
+.leftBarItem {
+    width: 100%;    
+    height: 44px;
+    display: flex;    
+    align-items: center;
+    margin-bottom: 24px;
+    border-radius: 10px;
+    padding: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.leftBarItem:hover {
+    cursor: pointer;
+    background-color: #f5f5f5;
+}
+
+.leftBarItemLabel {
+    font-family: "Montserrat Alternates";    
+    font-weight: 500;
+    margin-left: 12px;}
+
+
+#searchTasksBox {
+    padding: 32px;
+    width: 100%;
+    justify-content: space-between;    
+    align-items: center;
+    background: #fff;
+}
+
+.headerInfo {
+    display: flex;
+    justify-content: space-between;    
+    align-items: center;
+}
+
+#exploreTasksLabel {    
+    font-weight: 600;
+    font-size: 24px;
+}
+    
+#userActivity {
+    display: flex;    
+    align-items: center;
+}
+    
+#userNotificationItem {
+    max-height: 52px;    
+    max-width: 52px;
+    margin-right: 24px;
+}
+    
+#userAvatar {
+    max-height: 52px;    
+    max-width: 52px;
+    border-radius: 50%;
+}
+
+.taskSearchActivity {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.taskSearchInput {
+    border: 1px solid #dddddd;
+    padding: 14px 0 14px 28px;
+    width: 480px;
+    font-size: 16px;
+    font-family: "Montserrat";
+    transition: border .3s ease;
+    font-size: 12px;
+}
+
+.taskSearchInput:focus {
+    border: 1px solid #aeaeae;
+}
+  
+.taskSearchInput::placeholder {
+    font-size: 12px;
+    color: #54577A;
+}
+
+.taskSearchInput::-webkit-input-placeholder {
+    font-size: 12px;
+    color: #54577A;
+}
+
+.taskSearchInput:-ms-input-placeholder {
+    font-size: 12px;
+    color: #54577A;
+}
+
+.taskSearchActivityButtonsBox {
+    display: flex;
+}
+
+.taskSearchActivityButton {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dddddd;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 14px;
+}
+
+.taskSearchActivityButton:first-child {
+    margin-right: 24px;
+}
+
+.taskSearchActivityButtonIcon {
+    max-width: 100%;
+    max-height: 100%;
+    margin-right: 12px;
+}
+
+.sectionTaskInfo {
+    width: 60vw;
+    margin-right: 32px;
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 10px;
+}
+
+
+.taskInfoImage {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.taskInfoTitle {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.taskInfoRole {
+    font-size: 14px;
+    color: #54577A;
+    margin-bottom: 16px;
+}
+
+.taskInfoDeadline {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.taskInfoDeadlineImage {
+    margin-right: 5px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.taskDescription {
+    margin-top: 30px;
+}
+
+.taskDescriptionTitle {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.taskDescriptionText {
+    font-size: 14px;
+    color: #141522;
+}
+
+.boxTitle {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.taskInputRedactInfo {
+    width: 100%;
+    border: 1px solid #54577A;
+    padding: 14px 0 14px 28px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.taskInputRedactInfo::placeholder {
+    font-size: 12px;
+}
+
+.taskInputRedactInfo:focus {
+    border-color: #2c2e40;
+}
+
+#taskDescriptionTextArea {
+    padding: 14px 14px 14px 28px;
+    border: 1px solid #54577A;
+    border-radius: 10px;
+    width: 100%;
+    height: 50%;
+    font-size: 14px;
+    resize: none;
+}
+
+.taskRedactSubmitButton {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #546FFF;
+    color: #fff;
+    font-weight: 600;
+    padding: 14px 0 14px 0;
+    border-radius: 10px;
+}
+
+#taskDescriptionTextArea::placeholder {
+    font-size: 12px;
+}
+
+progress[value] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #BAC8FF;
+    border-radius: 5px;
+}
+
+progress[value]::-webkit-progress-value {
+    background-color: #546FFF;
+    border-radius: 5px;
+}
+
+progress[value]::-moz-progress-bar {
+    background-color: #546FFF;
+}
+
+@media (max-width: 1600px) {
+
+    #leftSection {
+        display:flex;
+        width: 100vw;
+        height: 10vh;
+        flex-direction: row;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+    }
+    
+    #titleBox {
+        width: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    #buttonsBox {
+        width: 50%;
+        height: auto;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        margin: 0;
+        margin-left: 100px;
+    }
+
+    .leftBarItem {
+        margin: 0;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    #rightSection {
+        width: 100%;
+        margin-top: 10vh;
+    }
+
+    body {
+        justify-content: space-between;
+        overflow: scroll;
+    }
+
+    #searchTasksBox {
+        margin-top: 10vh;
+    }
+}
+
+@media (max-width: 1100px) {
+    .taskSearchActivity {
+        display: block;
+    }
+    .leftHeaderBox {
+        margin-bottom: 20px;
+    }
+
+    .sectionTaskInfo {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .categoryTaskCardTimeLeft {
+        font-size: 12px;
+    }
+
+    main {
+        display: block;
+    }
+
+    .taskSearchInput {
+        margin-bottom: 20px;
+    }
+
+}

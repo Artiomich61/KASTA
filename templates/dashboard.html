@@ -1,0 +1,302 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+    <meta charset="utf-8"> 
+    <title>TaskaApp - Dashboard</title> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/reset.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/dashboard.css') }}"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head> 
+<body> 
+    <section id="leftSection"> 
+        <div id="titleBox"> 
+            <img src="{{ url_for('static', filename='/assets/book-square.svg') }}" alt="Логотип" id="appLogo"> 
+            <h1 id="appTitle">Taska</h1> 
+        </div>  
+        <div id="buttonsBox"> 
+            <div class="leftBarItem" id="overviewButton"> 
+                <img src="{{ url_for('static', filename='/assets/category-2.svg') }}" alt="" class="leftBarItemIcon"> 
+                <h3 class="leftBarItemLabel">Обзор</h3> 
+            </div> 
+            <div class="leftBarItem" id="tasksWindow"> 
+                <img src="{{ url_for('static', filename='/assets/book.svg') }}" alt="" class="leftBarItemIcon"> 
+                <h3 class="leftBarItemLabel">Задачи</h3> 
+            </div>
+            <div class="leftBarItem" id="settingsWindow"> 
+                <img src="{{ url_for('static', filename='/assets/setting-2.svg') }}" alt="" class="leftBarItemIcon"> 
+                <h3 class="leftBarItemLabel">Настройки</h3> 
+            </div> 
+        </div> 
+    </section> 
+
+    <main> 
+        <div id="userInfoBox"> 
+            <div id="userGreatingBox"> 
+                <h1 id="userGreatingLabel">Привет, Андрей!</h1> 
+                <h2 id="userGreatingText">Твоя роль: admin</h2> 
+                <h2 id="userGreatingText">Давай завершим твои задачи сегодня</h2> 
+            </div> 
+            <div id="userActivity"> 
+                <img src="{{ url_for('static', filename='/assets/Notification.svg') }}" alt="" id="userNotificationItem"> 
+                <img src="{{ url_for('static', filename='/assets/ava.jpg') }}" alt="Аватар пользователя" id="userAvatar"> 
+            </div> 
+        </div> 
+
+        <div class="activityBox"> 
+            <div class="currentTaskBox">  
+                <h3 class="currentTaskLabel">Текущая задача</h3>  
+                <div class="currentTaskLowBox">
+                    <div id="currentTaskLow">  
+                        <div class="progress-ring">  
+                            <svg width="100" height="100">  
+                                <circle r="45" cx="50" cy="50" stroke="#333" stroke-width="5" fill="transparent"></circle>  
+                                <circle class="progress" r="45" cx="50" cy="50" stroke="#616aff" stroke-width="5" fill="transparent"   
+                                        stroke-dasharray="0" stroke-dashoffset="0"></circle>  
+                            </svg>  
+                        </div> 
+                        <div id="currentTaskLowLabels"> 
+                            <p id="currentTaskFinish">5 дней</p>  
+                            <p id="currentTaskFinishLabel">Осталось</p>
+                        </div>
+                    </div> 
+                </div> 
+            </div> 
+        
+            <div id="activityGraphBox">
+                <div class="activityGraphLabels">
+                    <h2 class="activityGraphTitle secondHeader">Активность</h2> 
+                    <ul class="activityGraphTimeList"> 
+                        <li>Эта неделя</li> 
+                    </ul> 
+                </div>
+                <canvas id="myChart" width="100%" height="35px"></canvas>
+            </div> 
+        </div> 
+        <div id="homeTaskBox"> 
+            <h1 class="homeTaskTitle firstHeader">Задачи</h1> 
+            <div class="homeTaskCard">
+                <h3 class="homeTaskCardTitle">СИоД</h3>
+                <div class="homeTaskCardProgressBox">
+                    <div class="homeTaskCardProgressLabels">
+                        <h3 class="homeTaskCardProgressLabel">Прогресс</h3>
+                        <h3 class="homeTaskCardProgressPrecents">73%</h3>
+                    </div>
+                    <progress value="73" min="0" max="100" class="homeTaskCardProgressBar"></progress>
+                </div>
+
+                <div class="homeTaskCardFooter">
+                    <img src="{{ url_for('static', filename='/assets/Time Circle.svg') }}" alt="" class="homeTaskCardTimeIcon">
+                    <h2 class="homeTaskCardTimeLeft">2 дней осталось</h2>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    
+    <section id="rightSection">
+
+        <div id="datePicker">
+            <div class="calendar">
+                <div class="header">
+                  <button class="prev-month">&#8249;</button>
+                  <h2 id="month-year"></h2>
+                  <button class="next-month">&#8250;</button>
+                </div>
+                <div class="weekdays">
+                  <div>Пн</div>
+                  <div>Вт</div>
+                  <div>Ср</div>
+                  <div>Чт</div>
+                  <div>Пт</div>
+                  <div>Сб</div>
+                  <div>Вс</div>
+                </div>
+                <div class="days"></div>
+              </div>
+        </div>
+
+        <div class="taskToday">
+            <h2 class="thirdHeader">Задачи на сегодня</h2>
+
+            <img src="{{ url_for('static', filename='/assets/platon.jpeg') }}" alt="Фото задачи" class="taskTodayImage">
+
+            <h3 class="taskTodayTitle">Философия</h3>
+            <div class="taskTodayProgressBox">
+                <div class="taskTodayProgressLabels">
+                    <h3 class="taskTodayProgressLabel">Прогресс</h3>                        
+                    <h3 class="taskTodayProgressPrecents">80%</h3>
+                </div>
+                <progress value="80" min="0" max="100" class="taskTodayProgressBar"></progress>
+            </div>
+            <div class="taskTodayFooter">
+                <img src="{{ url_for('static', filename='/assets/Time Circle.svg') }}" alt="" class="taskTodayTimeIcon">
+                <h2 class="taskTodayTimeLeft">5 дней осталось</h2>
+            </div>
+
+            <div class="dashDivider"></div>
+
+            <div class="taskDetails">
+                <div class="taskDetailsLabels">
+                    <h2 class="secondHeader">Детали задачи</h2>
+                </div>
+
+                <div class="taskDetailsListBox">
+                    <ul class="taskDetailsList">
+                        <li class="taskDetailsItem"><p class="taskDetailsItemNum">1</p>Прочитать параграф</li>
+                        <li class="taskDetailsItem"><p class="taskDetailsItemNum">2</p>Поразмышлять о жизни</li>
+                        <li class="taskDetailsItem"><p class="taskDetailsItemNum">3</p>Прочитать Аристотеля</li>
+                    </ul>
+                </div>
+
+                <button class="taskDetailsOpen">Перейти к деталям</button>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='scripts/calendar.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        let ctx = document.querySelector("#myChart").getContext("2d");
+        let myChart = new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
+                datasets: [{
+                    label: "Задачи",
+                    data: [1, 3, 1, 2, 4, 2, 0],
+                    borderColor: [
+                        "#546FFF",
+                        "#546FFF",
+                        "#546FFF",
+                        "#546FFF",
+                        "#546FFF",
+                        "#546FFF",
+                        "#546FFF"],
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                maintainAspectRatio: true,
+            } 
+        })
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const datePicker = document.querySelector('#datePicker');
+        const calendar = new Datepicker(datePicker);
+
+        calendar.on('dayClick', function(date) {
+            const selectedDate = date.format('YYYY-MM-DD'); 
+
+            
+            fetch('/get_tasks_by_date?date=${selectedDate}')
+                .then(response => response.json())
+                .then(data => {
+                    const tasksContainer = document.querySelector('#homeTaskBox');
+                    tasksContainer.innerHTML = ''; 
+                    if (data.tasks.length > 0) {
+                        data.tasks.forEach(task => {
+                            const taskElement = `
+                                <div class="homeTaskCard">
+                                    <h3 class="homeTaskCardTitle">${task.name}</h3>
+                                    <div class="homeTaskCardProgressBox">
+                                        <div class="homeTaskCardProgressLabels">
+                                            <h3 class="homeTaskCardProgressLabel">Прогресс</h3>
+                                            <h3 class="homeTaskCardProgressPrecents">${task.progress}%</h3>
+                                        </div>
+                                        <progress value="${task.progress}" min="0" max="100" class="homeTaskCardProgressBar"></progress>
+                                    </div>
+                                    <div class="homeTaskCardFooter">
+                                        <img src="{{ url_for('static', filename='/assets/Time Circle.svg') }}" alt="" class="homeTaskCardTimeIcon">
+                                        <h2 class="homeTaskCardTimeLeft">${formatDaysUntilDue(task.due_date)}</h2>
+                                    </div>
+                                </div>
+                            `;
+                            tasksContainer.insertAdjacentHTML('beforeend', taskElement);
+                        });
+                    } else {
+                        tasksContainer.innerHTML = '<h3>Нет задач на выбранную дату</h3>'; // Сообщение, если задач нет
+                    }
+                });
+        });
+
+        function formatDaysUntilDue(dueDate) {
+            const now = new Date();
+            const due = new Date(dueDate);
+            const diffInMs = due.getTime() - now.getTime();
+            const daysUntilDue = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+            return daysUntilDue > 0 ? `${daysUntilDue} дней осталось` : 'Срок истек'; // Улучшенное сообщение о сроке
+        }
+    });
+    </script>
+
+    <script>
+    
+        document.getElementById('settingsWindow').addEventListener('click', function() {
+            window.location.href = '/setting'; 
+        });
+    
+        document.getElementById('tasksWindow').addEventListener('click', function() {
+            window.location.href = '/tasks';
+        });
+    
+        document.addEventListener('DOMContentLoaded', updateTaskProgress);
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const dateInput = document.getElementById('dateInput');
+    
+    flatpickr(dateInput, {
+        dateFormat: "Y-m-d",
+        onChange: function(selectedDates, dateStr) {
+            fetchTasksByDate(dateStr);
+        }
+    });
+
+    function fetchTasksByDate(date) {
+        fetch('/get_tasks_by_date?date=${date}')
+            .then(response => response.json())
+            .then(data => {
+                const tasksContainer = document.querySelector('#homeTaskBox');
+                tasksContainer.innerHTML = ''; // Очищаем предыдущие задачи
+
+                data.tasks.forEach(task => {
+                    const taskElement = `
+                        <div class="homeTaskCard">
+                            <h3 class="homeTaskCardTitle">${task.name}</h3>
+                            <div class="homeTaskCardProgressBox">
+                                <div class="homeTaskCardProgressLabels">
+                                    <h3 class="homeTaskCardProgressLabel">Прогресс</h3>
+                                    <h3 class="homeTaskCardProgressPrecents">${task.progress}%</h3>
+                                </div>
+                                <progress value="${task.progress}" min="0" max="100" class="homeTaskCardProgressBar"></progress>
+                            </div>
+                            <div class="homeTaskCardFooter">
+                                <img src="{{ url_for('static', filename='/assets/Time Circle.svg') }}" alt="" class="homeTaskCardTimeIcon">
+                                <h2 class="homeTaskCardTimeLeft">${formatDaysUntilDue(task.due_date)}</h2>
+                            </div>
+                        </div>
+                    `;
+                    tasksContainer.insertAdjacentHTML('beforeend', taskElement);
+                });
+            })
+            .catch(error => console.error('Ошибка при загрузке задач:', error));
+    }
+
+    function formatDaysUntilDue(dueDate) {
+        const now = new Date();
+        const due = new Date(dueDate);
+        const diffInMs = due.getTime() - now.getTime();
+        const daysUntilDue = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+        return daysUntilDue > 0 ? `${daysUntilDue} дней осталось` : 'Сегодня';
+    }
+});
+    </script>
+
+</body> 
+</html>

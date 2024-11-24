@@ -1,0 +1,167 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+    <meta charset="utf-8"> 
+    <title>TaskaApp - Tasks</title> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/reset.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/tasks.css') }}"> 
+</head>
+<body>
+    <div class="flexContainer">
+        <section id="leftSection"> 
+            <div id="titleBox"> 
+                <img src="{{ url_for('static', filename='/assets/book-square.svg') }}" alt="Логотип" id="appLogo"> 
+                <h1 id="appTitle">Taska</h1> 
+            </div>  
+            <div id="buttonsBox"> 
+                <div class="leftBarItem" id="overviewButton"> 
+                    <img src="{{ url_for('static', filename='/assets/category-2.svg') }}" alt="" class="leftBarItemIcon"> 
+                    <h3 class="leftBarItemLabel">Обзор</h3> 
+                </div> 
+                <div class="leftBarItem" id="tasksWindow"> 
+                    <img src="{{ url_for('static', filename='/assets/book.svg') }}" alt="" class="leftBarItemIcon"> 
+                    <h3 class="leftBarItemLabel">Задачи</h3> 
+                </div> 
+                <div class="leftBarItem" id="settingsWindow"> 
+                    <img src="{{ url_for('static', filename='/assets/setting-2.svg') }}" alt="" class="leftBarItemIcon"> 
+                    <h3 class="leftBarItemLabel">Настройки</h3> 
+                </div> 
+            </div> 
+        </section>
+        <div class="flexContainerMain">
+            <header id="searchTasksBox">
+                <div class="headerInfo"> 
+                    <div id="searchBox"> 
+                        <h1 id="exploreTasksLabel">Исследуйте задачи</h1> 
+                    </div>             
+                    <div id="userActivity">  
+                        <img src="{{ url_for('static', filename='/assets/ava.jpg') }}" alt="Аватар пользователя" id="userAvatar"> 
+                    </div> 
+                </div>
+                <div class="taskSearchActivity">
+                    <div class="leftHeaderBox">
+                        <input type="search" name="Найдите задачу" class="taskSearchInput" placeholder="Найдите задачу">
+                        <button id="createNewTaskButton">Новая задача</button>
+                    </div>
+                        <div class="taskSearchActivityButtonsBox">
+                            <button class="taskSearchActivityButton">
+                                <img src="{{ url_for('static', filename='/assets/element-1.svg') }}" alt="" class="taskSearchActivityButtonIcon">
+                                Категория
+                            </button>
+                            <button class="taskSearchActivityButton">
+                                <img src="{{ url_for('static', filename='/assets/sort.svg') }}" alt="" class="taskSearchActivityButtonIcon">
+                                Сортировать по: дате
+                            </button>
+                        </div>
+                    </div>
+            </header> 
+            <main>
+                <div class="categoryTasksBox" id="categoryFirstTaskBox">
+                    <div class="categoryTasksHeader">
+                        <h1 class="firstHeader categoryTasksHeaderTitle">Ограничение по времени</h1>
+                        <div class="categoryTasksControl">
+                            <button class="taskCategoryControlButton">
+                                <img src="{{ url_for('static', filename='/assets/Vector.svg') }}" alt="" class="taskCategoryControlButtonIcon">
+                            </button>
+                            <button class="taskCategoryControlButton">
+                                <img src="{{ url_for('static', filename='/assets/Vector-1.svg') }}" alt="" class="taskCategoryControlButtonIcon">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="categoryTasksBody">
+                        <div class="categoryTaskCard" id="categoryFirstTaskBox">
+                            <img src="{{ url_for('static', filename='/assets/programming.jpg') }}" alt="" class="categoryTaskCardImage">
+                            <h3 class="categoryTaskCardTitle">СИоД</h3>
+                            <div class="categoryTaskCardProgressBox">
+                                <div class="categoryTaskCardProgressLabels">
+                                    <h3 class="categoryTaskCardProgressLabel">Прогресс</h3>
+                                    <h3 class="categoryTaskCardProgressPrecents">73%</h3>
+                                </div>
+                                <progress value="73" min="0" max="100" class="categoryTaskCardProgressBar"></progress>
+                            </div>
+            
+                            <div class="categoryTaskCardFooter">
+                                <img src="{{ url_for('static', filename='/assets/Time Circle.svg') }}" alt="" class="categoryTaskCardTimeIcon">
+                                <h2 class="categoryTaskCardTimeLeft">2 дней осталось</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="categoryTasksBox">
+                    <div class="categoryTasksHeader">
+                        <h1 class="firstHeader categoryTasksHeaderTitle">Завершенные задачи</h1>
+                        <div class="categoryTasksControl">
+                            <button class="taskCategoryControlButton">
+                                <img src="{{ url_for('static', filename='/assets/Vector.svg') }}" alt="" class="taskCategoryControlButtonIcon">
+                            </button>
+                            <button class="taskCategoryControlButton">
+                                <img src="{{ url_for('static', filename='/assets/Vector-1.svg') }}" alt="" class="taskCategoryControlButtonIcon">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="categoryTasksBody">
+                        <div class="categoryTaskCard">
+                            <img src="{{ url_for('static', filename='/assets/voitiVIT.webp') }}" alt="" class="categoryTaskCardImage">
+                            <h3 class="categoryTaskCardTitle">Войти в IT</h3>
+                            <div class="categoryTaskCardProgressBox">
+                                <div class="categoryTaskCardProgressLabels">
+                                    <h3 class="categoryTaskCardProgressLabel">Прогресс</h3>
+                                    <h3 class="categoryTaskCardProgressPrecents">100%</h3>
+                                </div>
+                                <progress value="100" min="0" max="100" class="categoryTaskCardProgressBar"></progress>
+                            </div>
+            
+                            <div class="categoryTaskCardFooter">
+                                <img src=".{{ url_for('static', filename='/assets/Time Circle.svg') }}" alt="" class="categoryTaskCardTimeIcon">
+                                <h2 class="categoryTaskCardTimeLeft">Завершено</h2>
+                            </div>
+                        </div>
+
+                        <div class="categoryTaskCard">
+                            <img src="{{ url_for('static', filename='/assets/iktib.jpg') }}" alt="" class="categoryTaskCardImage">
+                            <h3 class="categoryTaskCardTitle">Фича</h3>
+                            <div class="categoryTaskCardProgressBox">
+                                <div class="categoryTaskCardProgressLabels">
+                                    <h3 class="categoryTaskCardProgressLabel">Прогресс</h3>
+                                    <h3 class="categoryTaskCardProgressPrecents">100%</h3>
+                                </div>
+                                <progress value="100" min="0" max="100" class="categoryTaskCardProgressBar"></progress>
+                            </div>
+            
+                            <div class="categoryTaskCardFooter">
+                                <img src=".{{ url_for('static', filename='/assets/Time Circle.svg') }}" alt="" class="categoryTaskCardTimeIcon">
+                                <h2 class="categoryTaskCardTimeLeft">Завершено</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>  
+    </div>
+</body>
+
+<script>
+    document.getElementById('overviewButton').addEventListener('click', function() {
+        window.location.href = '/dashboard';
+    });
+
+    document.getElementById('settingsWindow').addEventListener('click', function() {
+        window.location.href = '/setting';
+    });
+
+    document.getElementById('tasksWindow').addEventListener('click', function() {
+        window.location.href = '/tasks';
+    });
+
+    document.getElementById('categoryFirstTaskBox').addEventListener('click', function() {
+        window.location.href = '/taskDetails';
+    });
+
+    document.getElementById('createNewTaskButton').addEventListener('click', function() {
+    window.location.href = '/createNewTask';
+    });
+
+</script>
+
+</html>

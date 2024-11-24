@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Welcome</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/welcome.css') }}">
+</head>
+<body>
+    <div id="welcomeblock">
+        <div class="picture">
+            <img src="{{ url_for('static', filename='/assets/amico.svg') }}" alt="">
+            <h2 id="line1">Наслаждайся своим временем</h2>
+            <p id="line2">если Вы не уверены в том, как справиться со своей задачей, приходите к нам</p>
+        </div>
+        <div class="buttonRegBox">
+            <button class="regBut buttonReg" id="regButton">Войти</button>
+            <button class="logBut buttonReg" id="logButton">Зарегистрироваться</button>
+        </div>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('regButton').addEventListener('click', function() {
+            window.location.href = '/login';
+        });
+        document.getElementById('logButton').addEventListener('click', function() {
+            window.location.href = '/registration';
+        });
+    });
+</script>
+</body>
+</html>

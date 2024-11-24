@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Авторизация</title>
+    <link rel='stylesheet' href="{{ url_for('static', filename='styles/regLog.css') }}">
+</head>
+<body>
+    <div id="regblock">
+        <div class="inputBox">
+            <h1 class="firstHeader">Вход</h1>
+            <form action="/login" method="POST">
+                <input type="email" name="email" placeholder="E-Mail" class="inputType" required>
+                <input type="password" name="password" placeholder="Пароль" class="inputType" required>
+                <div class="buttonRegBox">
+                    <button type="submit" class="regBut buttonReg">Войти</button>
+                    <button type="button" id="Terex" class="logBut buttonReg" onclick="goToRegistrationPage()">Зарегистрироваться</button>
+                </div>
+                <div class="tgAuthBox">
+                    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="kasta12332122bot" data-radius="20" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
+                    <script type="text/javascript">
+                        function onTelegramAuth(user) {
+                            fetch('/telegram_login', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(user)
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    window.location.href = data.redirect; // Redirect to the dashboard
+                                }
+                            })
+                            .catch(error => console.error('Error:', error));
+                        }
+
+                        document.getElementById('Terex').addEventListener('click', function() {
+                            window.location.href = '/registration';
+                        });
+                    </script>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

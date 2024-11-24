@@ -1,0 +1,90 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+    <meta charset="utf-8"> 
+    <title>TaskaApp - Dashboard</title> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/reset.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/taskDetails.css') }}"> 
+</head> 
+<body> 
+    <div class="flexContainer">
+        <section id="leftSection"> 
+            <div id="titleBox"> 
+                <img src="{{ url_for('static', filename='/assets/book-square.svg') }}" alt="Логотип" id="appLogo"> 
+                <h1 id="appTitle">Taska</h1> 
+            </div>  
+            <div id="buttonsBox"> 
+                <div class="leftBarItem" id="overviewButton"> 
+                    <img src="{{ url_for('static', filename='/assets/category-2.svg') }}" alt="" class="leftBarItemIcon"> 
+                    <h3 class="leftBarItemLabel">Обзор</h3> 
+                </div> 
+                <div class="leftBarItem" id="tasksWindow"> 
+                    <img src="{{ url_for('static', filename='/assets/book.svg') }}" alt="" class="leftBarItemIcon"> 
+                    <h3 class="leftBarItemLabel">Задачи</h3> 
+                </div> 
+                <div class="leftBarItem" id="settingsWindow"> 
+                    <img src="{{ url_for('static', filename='/assets/setting-2.svg') }}" alt="" class="leftBarItemIcon"> 
+                    <h3 class="leftBarItemLabel">Настройки</h3> 
+                </div> 
+            </div> 
+        </section>
+        <div class="flexContainerMain">
+            <header id="searchTasksBox">
+                <div class="headerInfo"> 
+                    <div id="searchBox"> 
+                        <h1 id="exploreTasksLabel">Исследуйте задачи</h1> 
+                    </div>             
+                    <div id="userActivity"> 
+                        <img src="{{ url_for('static', filename='/assets/ava.jpg') }}" alt="Аватар пользователя" id="userAvatar"> 
+                    </div> 
+                </div>
+                <div class="taskSearchActivity">
+                    <input type="search" name="Найдите задачу" class="taskSearchInput" placeholder="Найдите задачу">
+                        <div class="taskSearchActivityButtonsBox">
+                            <button class="taskSearchActivityButton">
+                                <img src="{{ url_for('static', filename='/assets/element-1.svg') }}" alt="" class="taskSearchActivityButtonIcon">
+                                Категория
+                            </button>
+                            <button class="taskSearchActivityButton">
+                                <img src="{{ url_for('static', filename='/assets/sort.svg') }}" alt="" class="taskSearchActivityButtonIcon">
+                                Сортировать по: дате
+                            </button>
+                        </div>
+                    </div>
+            </header> 
+            <main>
+                <div class="sectionTaskInfo">
+                    <img src="{{ url_for('static', filename='/assets/programming.jpg') }}" alt="Фотография задачи" class="taskInfoImage">
+                    <h1 class="firstHeader taskInfoTitle">СИоД</h1>
+                    <h3 class="thirdHeader taskInfoDeadline"><img src="{{ url_for('static', filename='/assets/Time Circle.svg') }}" alt="" class="taskInfoDeadlineImage">2 дней</h3>
+                    <div class="taskDescription">
+                        <h1 class="firstHeader taskDescriptionTitle">Описание</h1>
+                        <p class="taskDescriptionText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic tenetur ullam dicta, illo reiciendis et unde laborum accusantium optio minus delectus nisi minima animi quod quisquam, reprehenderit esse? Voluptates cumque odio in recusandae non totam illum iste, accusantium temporibus laudantium?</p>
+                    </div>
+                </div>
+                <div class="rightSection">
+                    <h2 class="boxTitle">Редактирование задачи</h2>
+                    <input type="text" placeholder="Название задачи" id="" class="taskInputRedactInfo">
+                    <input type="text" placeholder="Время до окончания (в часах)" name="" id="" class="taskInputRedactInfo">
+                    <textarea name="Описание задачи" id="taskDescriptionTextArea" placeholder="Описание задачи"></textarea>
+                    <button class="taskRedactSubmitButton">Подтвердить изменения</button>
+                </div>
+            </main>
+        </div>  
+    </div>
+</body>
+
+<script>
+    document.getElementById('overviewButton').addEventListener('click', function() {
+        window.location.href = '/dashboard';
+    });
+
+    document.getElementById('settingsWindow').addEventListener('click', function() {
+        window.location.href = '/setting';
+    });
+
+    document.getElementById('tasksWindow').addEventListener('click', function() {
+        window.location.href = '/tasks';
+    });
+</script>
+</html> 

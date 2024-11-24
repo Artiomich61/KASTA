@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>TaskaApp - Настройки</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/settings.css') }}">
+</head>
+<body>
+
+<section id="leftSection">
+    <div id="titleBox">
+        <img src="{{ url_for('static', filename='assets/book-square.svg') }}" alt="Логотип" id="appLogo">
+        <h1 id="appTitle">Taska</h1>
+    </div>
+
+    <div id="buttonsBox">
+        <div class="leftBarItem button" id="overviewButton">
+            <img src="{{ url_for('static', filename='assets/category-2.svg') }}" alt="" class="leftBarItemIcon">
+            <h3 class="leftBarItemLabel">Обзор</h3>
+        </div>
+        <div class="leftBarItem button" id="tasksWindow">
+            <img src="{{ url_for('static', filename='assets/book.svg') }}" alt="" class="leftBarItemIcon">
+            <h3 class="leftBarItemLabel">Задачи</h3>
+        </div>
+        <div class="leftBarItem button" id="settingsWindow">
+            <img src="{{ url_for('static', filename='assets/setting-2.svg') }}" alt="" class="leftBarItemIcon">
+            <h3 class="leftBarItemLabel">Настройки</h3>
+        </div>
+    </div>
+</section>
+
+<main>
+    <div id="settingsTitleBox">
+        <h1 class="settingsTitle">Настройки</h1>
+    </div>
+    
+    <div id="timeZoneBox">
+        <p id="timeZoneLabel">Формат времени:</p>
+        <input type="radio" name="timeFormat" value="12" id="format12" class="checkbox">
+        <label for="format12" class="checkboxLabel">
+            12-Часовой
+            <div class="indicator"></div>
+        </label>
+        <input type="radio" name="timeFormat" value="24" id="format24" class="checkbox">
+        <label for="format24" class="checkboxLabel">
+            24-Часовой
+            <div class="indicator"></div>
+        </label>
+    </div>
+    
+    <!-- Дополнительные настройки здесь -->
+</main>
+
+<script>
+    document.getElementById('overviewButton').addEventListener('click', function() {
+        window.location.href = '/dashboard';
+    });
+
+    document.getElementById('settingsWindow').addEventListener('click', function() {
+        window.location.href = '/setting';
+    });
+
+    document.getElementById('tasksWindow').addEventListener('click', function() {
+        window.location.href = '/tasks';
+    });
+</script>
+
+</body>
+</html>

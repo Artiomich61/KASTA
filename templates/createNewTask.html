@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>TaskaApp - Tasks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/createNewTask.css') }}">
+</head>
+<body>
+    <div class="flexContainer">
+        <section id="leftSection">
+            <div id="titleBox">
+                <img src="{{ url_for('static', filename='assets/book-square.svg') }}" alt="Логотип" id="appLogo">
+                <h1 id="appTitle">Taska</h1>
+            </div>
+            <div id="buttonsBox"> 
+                <div class="leftBarItem" id="overviewButton"> 
+                    <img src="{{ url_for('static', filename='/assets/category-2.svg') }}" alt="" class="leftBarItemIcon"> 
+                    <h3 class="leftBarItemLabel">Обзор</h3> 
+                </div> 
+                <div class="leftBarItem" id="tasksWindow"> 
+                    <img src="{{ url_for('static', filename='/assets/book.svg') }}" alt="" class="leftBarItemIcon"> 
+                    <h3 class="leftBarItemLabel">Задачи</h3> 
+                </div> 
+                <div class="leftBarItem" id="settingsWindow"> 
+                    <img src="{{ url_for('static', filename='/assets/setting-2.svg') }}" alt="" class="leftBarItemIcon"> 
+                    <h3 class="leftBarItemLabel">Настройки</h3> 
+                </div> 
+            </div> 
+        </section>
+        <div class="flexContainerMain">
+            <header id="searchTasksBox">
+                <h1 id="exploreTasksLabel">Создайте свою задачу</h1>
+            </header>
+            <main>
+                <div class="addTaskInfoBox">
+                    <form action="/createNewTask" method="POST" class="addTaskForm">
+                        <input type="text" class="addTaskFormItem addTaskTitle" name="task_title" placeholder="Название задачи" required>
+                        <textarea name="task_description" class="addTaskFormItem addTaskDescription" placeholder="Описание задачи" required></textarea>
+                        <div class="dueDateContainer">
+                            <label for="dueDate">Дата окончания:</label>
+                            <input type="date" id="dueDate" name="due_date" required>
+                            <label for="dueTimee">Время окончания:</label>
+                            <input type="time" id="dueTime" name="due_time" required>
+                        </div>
+                        <input type="file" name="taskImage" id="taskCardImage">
+                        <button type="submit" class="addTaskFormItem addTaskButton">Добавить задачу</button>
+                    </form>
+                </div>
+                <h2>Список задач</h2>
+                <ul>
+                    {% for task in tasks %}
+                        <li>
+                            <h3>{{ task.title }}</h3>
+                            <p>{{ task.description }}</p>
+                            <h4>Подзадачи:</h4>
+                            <ul>
+                                {% for subtask in task.subtasks %}
+                                    <li>
+                                        {{ subtask.title }}
+                                        {% if subtask.completed %}
+                                            - Выполнено
+                                        {% else %}
+                                            <form action="/complete_subtask/{{ loop.index0 }}/{{ loop.index }}" method="POST" style="display:inline;">
+                                                <button type="submit">Завершить</button>
+                                            </form>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <form action="/add_subtask/{{ loop.index0 }}" method="POST">
+                                <input type="text" name="subtask_title" placeholder="Введите подзадачу" required>
+                                <button type="submit">Добавить подзадачу</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </main>
+        </div>
+    </div>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const taskList = document.querySelector('.taskListContainer ul');
+    
+    // Функция для отображения задач
+    function displayTasks(tasks) {
+        taskList.innerHTML = '';
+        tasks.forEach(task => {
+            const li = document.createElement('li');
+            li.className = 'taskItem';
+            
+            const h3 = document.createElement('h3');
+            h3.textContent = task.name;
+            li.appendChild(h3);
+            
+            const p = document.createElement('p');
+            p.textContent = task.description;
+            li.appendChild(p);
+            
+            const subtasksList = document.createElement('ul');
+            task.subtasks.forEach(subtask => {
+                const liSubtask = document.createElement('li');
+                liSubtask.textContent = subtask.title;
+                if (subtask.completed) {
+                    liSubtask.style.textDecoration = 'line-through';
+                }
+                subtasksList.appendChild(liSubtask);
+            });
+            li.appendChild(subtasksList);
+            
+            const form = document.createElement('form');
+            form.action = `/add_subtask/${taskList.children.length - 1}`;
+            form.method = 'POST';
+            form.innerHTML = '<input type="text" name="subtask_title" placeholder="Введите подзадачу" required><button type="submit">Добавить подзадачу</button>';
+            li.appendChild(form);
+            
+            taskList.appendChild(li);
+        });
+    }
+
+    // Загрузка задач при загрузке страницы
+    fetch('/get_tasks_by_date')
+        .then(response => response.json())
+        .then(data => {
+            displayTasks(data.tasks);
+        })
+        .catch(error => console.error('Error fetching tasks:', error));
+
+    // Обработка добавления новой задачи
+    document.querySelector('#createNewTaskForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        fetch('/', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(() => {
+            location.reload();
+        })
+        .catch(error => console.error('Error creating task:', error));
+    });
+
+    // Обработка завершения подзадачи
+    taskList.addEventListener('change', function(event) {
+        if (event.target.type === 'checkbox') {
+            event.target.closest('li').style.textDecoration = event.target.checked ? 'line-through' : 'none';
+        }
+    });
+});
+
+</script>
+
+<script>
+    // Функция для установки значения поля ввода даты
+    function setDueDate(date) {
+        const dueDateElement = document.getElementById('dueDate');
+        dueDateElement.value = date.toISOString().split('T')[0];
+    }
+    
+    // Функция для установки значения поля ввода времени
+    function setDueTime(time) {
+        const dueTimeElement = document.getElementById('dueTime');
+        dueTimeElement.value = time.toTimeString().split(' ')[0].slice(0, 5);
+    }
+    
+    // Функция для получения выбранной даты и времени
+    function getDueDateTime() {
+        const dueDate = document.getElementById('dueDate').value;
+        const dueTime = document.getElementById('dueTime').value;
+        return `${dueDate}T${dueTime}`;
+    }
+    
+    // Добавляем слушатель событий к кнопкам переключения месяца
+    const prevMonthBtn = document.querySelector('.prev-month');
+    const nextMonthBtn = document.querySelector('.next-month');
+    
+    prevMonthBtn.addEventListener('click', () => {
+        const calendar = document.querySelector('.calendar');
+        calendar.style.display = 'none';
+    });
+    
+    nextMonthBtn.addEventListener('click', () => {
+        const calendar = document.querySelector('.calendar');
+        calendar.style.display = 'none';
+    });
+</script>
+    
+<script>
+    document.getElementById('overviewButton').addEventListener('click', function() {
+        window.location.href = '/dashboard';
+    });
+
+    document.getElementById('settingsWindow').addEventListener('click', function() {
+        window.location.href = '/setting';
+    });
+
+    document.getElementById('tasksWindow').addEventListener('click', function() {
+        window.location.href = '/tasks';
+    });
+
+</script>
+</html>
